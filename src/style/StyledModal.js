@@ -43,7 +43,7 @@ export const ToggleArea = styled.div`
   }
 `;
 
-export const ModalContainer = styled.div`
+export const ModalFrame = styled.div`
   box-sizing: border-box;
 
   width: min(100%, 1200px);
@@ -66,7 +66,7 @@ export const ModalContainer = styled.div`
   }
 `;
 
-export const Blur = styled.label`
+export const Blur = styled.div`
   position: fixed;
   top: 0;
   left: 0;

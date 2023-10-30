@@ -1,7 +1,7 @@
 import React, {useEffect} from "react";
 
 import {useRecoilState, useRecoilValue} from "recoil";
-import {userLikeState, userIp} from "../../recoil/store";
+import {userLikeState, userIp, modalState} from "../../recoil/store";
 import {get, child, ref} from "firebase/database";
 import {firebasedatabase} from "../../Firebase/firebase";
 import ModalView from "./ModalView";
@@ -20,6 +20,7 @@ const getLikeState = ({billId, ip, setLikeState}) => {
 
 function ModalContainer({billsInformation}) {
   const [likeState, setLikeState] = useRecoilState(userLikeState);
+  const [_, setModalState] = useRecoilState(modalState);
   const ip = useRecoilValue(userIp);
   const stringUserIp = ip.split(".").join("");
 
@@ -31,7 +32,7 @@ function ModalContainer({billsInformation}) {
 
   return (
     <>
-      <ModalView billsInformation={billsInformation} likeState={likeState} />
+      <ModalView billsInformation={billsInformation} likeState={likeState} clickHandler={() => setModalState(false)} />
     </>
   );
 }
