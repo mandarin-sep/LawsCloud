@@ -1,16 +1,15 @@
 import React, {useState} from "react";
 import {StyledBillTable, StyledBillThead, StyledBillTbody} from "../../style/StyledBillsList";
 import ExcelFilterList from "./ExcelFilterList";
-import BillsModal from "../Modal/BillsModal";
+import ModalContainer from "../Modal/ModalContainer";
 import TotalViews from "../TotalViews/TotalViews";
 import LikeNum from "../likeButton/LikeNum";
 import {set, ref, get, child, update} from "firebase/database";
 import {firebasedatabase} from "../../Firebase/firebase";
 import {useRecoilState, useRecoilValue} from "recoil";
-import {userIp, userLikeState, excelFilterState, billListState, pageState} from "../../recoil/store";
+import {userIp, userLikeState, excelFilterState, billListState, pageState, modalState} from "../../recoil/store";
 
 const BillsList = () => {
-  const [onModal, setOnModal] = useState(false);
   const [billsInformation, setBillsInformation] = useState({});
   const [viewCount, setViewCount] = useState(0);
   const [toggle, setToggle] = useState(false);
@@ -20,6 +19,7 @@ const BillsList = () => {
   const [, setExcelFilter] = useRecoilState(excelFilterState);
   const [, setPage] = useRecoilState(pageState);
   const [_likeState, setLikeState] = useRecoilState(userLikeState);
+  const [modalOpen, setModalOpen] = useRecoilState(modalState);
 
   const toggleHandler = (e) => {
     setPage(1);
@@ -92,7 +92,7 @@ const BillsList = () => {
                 <div
                   className="item"
                   onClick={() => {
-                    setOnModal(!onModal);
+                    setModalOpen(!modalOpen);
                     setBillsInformation(data);
                     setView(data);
                     getIpLikeInfo(data);
@@ -120,9 +120,7 @@ const BillsList = () => {
         </StyledBillTbody>
       </StyledBillTable>
 
-      {onModal && (
-        <BillsModal billsInformation={billsInformation} setOnModal={(bool) => setOnModal(bool)} onModal={onModal} />
-      )}
+      {modalOpen && <ModalContainer billsInformation={billsInformation} />}
     </>
   );
 };

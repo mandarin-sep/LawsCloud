@@ -1,17 +1,17 @@
 import React from "react";
 import ModalPortal from "./ModalPortal";
-import {ModalView, Blur} from "../../style/StyledModal";
+import {ModalContainer, Blur} from "../../style/StyledModal";
+import {useRecoilState} from "recoil";
+import {modalState} from "../../recoil/store";
 
-function ModalFrame({children, setOnModal}) {
+function ModalFrame({children}) {
+  const [_, setModalOpen] = useRecoilState(modalState);
   return (
     <ModalPortal>
-      <Blur
-        onClick={() => {
-          setOnModal(false);
-        }}></Blur>
-      <ModalView>
+      <Blur onClick={() => setModalOpen(false)}></Blur>
+      <ModalContainer>
         <div>{children}</div>
-      </ModalView>
+      </ModalContainer>
     </ModalPortal>
   );
 }

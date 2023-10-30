@@ -43,7 +43,7 @@ export const ToggleArea = styled.div`
   }
 `;
 
-export const ModalView = styled.div`
+export const ModalContainer = styled.div`
   box-sizing: border-box;
 
   width: min(100%, 1200px);

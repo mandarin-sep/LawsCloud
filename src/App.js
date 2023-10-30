@@ -6,24 +6,17 @@ import WordCloudPage from "./pages/WordCloudPage";
 import ComparedWordCloudPage from "./pages/ComparedWordCloudPage";
 
 import Bills from "./pages/Bills";
-import axios from "axios";
+import {getIp} from "./api/getIp";
 import {useRecoilState} from "recoil";
 import {userIp} from "./recoil/store";
-const apiKey = process.env.REACT_APP_IP_API_KEY;
 
 function App() {
-  const [ip, setIp] = useRecoilState(userIp);
+  const [, setIp] = useRecoilState(userIp);
   useEffect(() => {
-    async function getIp() {
-      try {
-        const userIpInfo = await axios(`https://geo.ipify.org/api/v2/country?apiKey=${apiKey}`);
-        setIp(userIpInfo.data.ip);
-      } catch (error) {
-        console.error("Error fetching user IP:", error);
-      }
-    }
-
-    getIp();
+    async () => {
+      const userIp = await getIp();
+      setIp(userIp);
+    };
   }, []);
 
   return (

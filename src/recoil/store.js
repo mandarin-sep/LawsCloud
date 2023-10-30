@@ -26,3 +26,8 @@ export const billSizeState = atom({
   key: "billSize",
   default: 0,
 });
+
+export const modalState = atom({
+  key: "modalState",
+  default: false,
+});
