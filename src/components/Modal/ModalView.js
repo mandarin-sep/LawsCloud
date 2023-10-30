@@ -1,7 +1,7 @@
 import React from "react";
 import ModalPortal from "./ModalPortal";
 import BillsContents from "../BillsContents/BillsContents";
-import TotalComments from "../TotalComments/TotalComments";
+import TotalReplyCount from "./TotalReplyCount";
 import TotalViews from "../TotalViews/TotalViews";
 import Reply from "../Reply/Reply";
 import ToggleLike from "../likeButton/ToggleLike";
@@ -20,7 +20,7 @@ export default function ModalView({billsInformation, likeState, clickHandler}) {
             <BillsContents billsInformation={billsInformation} />
             <ToggleArea>
               <p>
-                댓글 <TotalComments billId={billsInformation.BILL_ID} />
+                댓글 <TotalReplyCount billId={billsInformation.BILL_ID} />
                 <span className="arrow" />
               </p>
               <span className="view-and-like">
