@@ -13,10 +13,10 @@ import {userIp} from "./recoil/store";
 function App() {
   const [, setIp] = useRecoilState(userIp);
   useEffect(() => {
-    async () => {
+    (async () => {
       const userIp = await getIp();
       setIp(userIp);
-    };
+    })();
   }, []);
 
   return (

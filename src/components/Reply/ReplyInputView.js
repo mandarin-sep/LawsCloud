@@ -1,58 +1,19 @@
-import React, {useState} from "react";
+import React from "react";
 import styled from "styled-components";
-import {addDoc, collection, serverTimestamp} from "firebase/firestore";
-import {dbService} from "../../Firebase/firebase";
-import {v4 as uuidv4} from "uuid";
-import ReplyList from "./ReplyList";
-import {useRecoilValue} from "recoil";
-import {userIp} from "../../recoil/store";
 
-export default function Reply({billId, billAge}) {
-  const [id, setId] = useState("");
-  const [password, setPassword] = useState("");
-  const [content, setContent] = useState("");
-  const ip = useRecoilValue(userIp);
-
-  const onChange = (e) => {
-    const {
-      target: {name, value},
-    } = e;
-    if (name === "id") {
-      setId(value);
-    } else if (name === "password") {
-      setPassword(value);
-    } else if (name === "content") {
-      setContent(value);
-    }
-  };
-
-  const onSubmit = async (e) => {
-    e.preventDefault();
-    await addDoc(collection(dbService, `${billId}`), {
-      text: content,
-      createdAt: serverTimestamp(),
-      creatorId: id,
-      password: password,
-      ip: ip,
-      key: uuidv4(),
-      age: Number(billAge),
-    });
-    setPassword(""), setId(""), setContent("");
-  };
-
+export default function ReplyInputView({password, content, id, changeHandler, submitHandler}) {
   return (
     <>
-      <ReplyList billId={billId} />
-      <ReplyArea onSubmit={onSubmit}>
+      <ReplyArea onSubmit={submitHandler}>
         <UserInfoArea>
-          <ReplyId type="text" name="id" placeholder="ID" required value={id} onChange={onChange}></ReplyId>
+          <ReplyId type="text" name="id" placeholder="ID" required value={id} onChange={changeHandler}></ReplyId>
           <ReplyPassword
             type="password"
             name="password"
             placeholder="Password"
             required
             value={password}
-            onChange={onChange}></ReplyPassword>
+            onChange={changeHandler}></ReplyPassword>
         </UserInfoArea>
         <InputReply
           type="text"
@@ -60,7 +21,7 @@ export default function Reply({billId, billAge}) {
           placeholder="이 법안에 대해 어떻게 생각하세요?"
           required
           value={content}
-          onChange={onChange}></InputReply>
+          onChange={changeHandler}></InputReply>
         <SubmitButton type="submit" value="댓글 작성" />
       </ReplyArea>
     </>

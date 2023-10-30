@@ -3,7 +3,7 @@ import ModalPortal from "./ModalPortal";
 import BillsContents from "../BillsContents/BillsContents";
 import TotalReplyCount from "./TotalReplyCount";
 import TotalViews from "../TotalViews/TotalViews";
-import Reply from "../Reply/Reply";
+import ReplyContainer from "../Reply";
 import ToggleLike from "../likeButton/ToggleLike";
 import {ToggleArea} from "../../style/StyledModal";
 import {ReactComponent as ViewIcon} from "../../assests/images/view.svg";
@@ -31,7 +31,7 @@ export default function ModalView({billsInformation, likeState, clickHandler}) {
                 <ToggleLike billId={billsInformation.BILL_ID} userLike={likeState} />
               </span>
             </ToggleArea>
-            <Reply billId={billsInformation.BILL_ID} billAge={billsInformation.AGE} />
+            <ReplyContainer billId={billsInformation.BILL_ID} billAge={billsInformation.AGE} />
           </ModalFrame>
         </ModalPortal>
       )}
