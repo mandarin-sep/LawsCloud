@@ -57,7 +57,7 @@ const ReplyContainer = ({billId, billAge}) => {
       createdAt: serverTimestamp(),
       creatorId: replyInfo.id,
       password: replyInfo.password,
-      ip: ip,
+      ip: ip.split(".").slice(0, 2).join("."),
       key: uuidv4(),
       age: Number(billAge),
     });
@@ -72,7 +72,7 @@ const ReplyContainer = ({billId, billAge}) => {
     const ok = window.prompt("비밀번호를 입력하세요");
     if (ok === data.password) {
       console.log("hi");
-      await deleteDoc(doc(dbService, `${billId}`, `${data.billId}`));
+      await deleteDoc(doc(dbService, `${billId}`, `${data.id}`));
     } else {
       window.alert("비밀번호가 다릅니다");
     }
