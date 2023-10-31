@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import {useLocation} from "react-router-dom";
 import {StyledWrap} from "../style/StyledBills";
 import BillsList from "../components/BillList/BillsList";
-import SearchBar from "../components/BillList/SearchBar";
+import SearchBar from "../components/BillList/Search";
 import PageNationSession from "../components/BillList/PageNationSession";
 import {useBillList} from "../hooks/useBillList";
 

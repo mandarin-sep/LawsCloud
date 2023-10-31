@@ -28,7 +28,7 @@ const ReplyContainer = ({billId, billAge}) => {
     });
   }, [billId]);
 
-  const onChange = (e) => {
+  const changeHandler = (e) => {
     const {
       target: {name, value},
     } = e;
@@ -50,7 +50,7 @@ const ReplyContainer = ({billId, billAge}) => {
     }
   };
 
-  const onSubmit = async (e) => {
+  const submitHandler = async (e) => {
     e.preventDefault();
     await addDoc(collection(dbService, `${billId}`), {
       text: replyInfo.content,
@@ -68,7 +68,7 @@ const ReplyContainer = ({billId, billAge}) => {
     });
   };
 
-  const onDeleteClick = async (data) => {
+  const deleteHandler = async (data) => {
     const ok = window.prompt("비밀번호를 입력하세요");
     if (ok === data.password) {
       console.log("hi");
@@ -80,13 +80,13 @@ const ReplyContainer = ({billId, billAge}) => {
 
   return (
     <>
-      <ReplyList replyData={replyData} deleteHandler={onDeleteClick} />
+      <ReplyList replyData={replyData} deleteHandler={deleteHandler} />
       <ReplyInputView
         password={replyInfo.password}
         content={replyInfo.content}
         id={replyInfo.id}
-        changeHandler={onChange}
-        submitHandler={onSubmit}
+        changeHandler={changeHandler}
+        submitHandler={submitHandler}
       />
     </>
   );
