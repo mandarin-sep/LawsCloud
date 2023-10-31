@@ -4,11 +4,11 @@ import BillsContents from "../BillsContents/BillsContents";
 import TotalReplyCount from "./TotalReplyCount";
 import TotalViews from "../TotalViews/TotalViews";
 import ReplyContainer from "../Reply";
-import ToggleLike from "../likeButton/ToggleLike";
 import {ToggleArea} from "../../style/StyledModal";
 import {ReactComponent as ViewIcon} from "../../assests/images/view.svg";
 
 import {ModalFrame, Blur} from "../../style/StyledModal";
+import LikeBtn from "./LikeBtn";
 
 export default function ModalView({billsInformation, likeState, clickHandler}) {
   return (
@@ -28,7 +28,7 @@ export default function ModalView({billsInformation, likeState, clickHandler}) {
                   <label title="조회수" />
                 </ViewIcon>
                 <TotalViews billId={billsInformation.BILL_ID} inModal={true} />
-                <ToggleLike billId={billsInformation.BILL_ID} userLike={likeState} />
+                <LikeBtn billId={billsInformation.BILL_ID} userLike={likeState} />
               </span>
             </ToggleArea>
             <ReplyContainer billId={billsInformation.BILL_ID} billAge={billsInformation.AGE} />

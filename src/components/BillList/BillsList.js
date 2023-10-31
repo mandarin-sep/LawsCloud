@@ -3,7 +3,7 @@ import {StyledBillTable, StyledBillThead, StyledBillTbody} from "../../style/Sty
 import ExcelFilterList from "./ExcelFilterList";
 import ModalContainer from "../Modal/ModalContainer";
 import TotalViews from "../TotalViews/TotalViews";
-import LikeNum from "../likeButton/LikeNum";
+import LikeNum from "./LikeNum";
 import {set, ref, get, child, update} from "firebase/database";
 import {firebasedatabase} from "../../Firebase/firebase";
 import {useRecoilState, useRecoilValue} from "recoil";
