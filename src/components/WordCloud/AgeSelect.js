@@ -17,7 +17,7 @@ const AgeSelect = ({age, setAge, setYear, agesAndYears, size = 100}) => {
   return (
     <StyledWrapper className="age-select" size={size}>
       <div className="text">제</div>
-      <select value={age} onChange={handleChange}>
+      <select value={age} onChange={handleChange} aria-label="기수 선택">
         {ages.map((elem) => (
           <option value={elem} key={`${elem}th`}>
             {elem}

@@ -18,7 +18,6 @@ const YearSelect = ({year, setYear, firstYear, yearsNumber, size = 100}) => {
         <button
           type="button"
           value={elemYear}
-          id={"year-button"}
           className={year === elemYear ? "year-button selectedYear" : "year-button"}
           key={`${elemYear}-button`}>
           {elemYear}
