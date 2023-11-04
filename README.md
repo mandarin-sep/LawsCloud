@@ -30,16 +30,13 @@
 
 ### Tech Stacks
 
-<!-- JavaScript -->
-<img alt="JavaScript" src ="https://img.shields.io/badge/JavaScript-F7DF1E.svg?&style=for-the-badge&logo=JavaScript&logoColor=black"/>
-<!-- React -->
-<img alt="React" src ="https://img.shields.io/badge/React-61DAFB.svg?&style=for-the-badge&logo=React&logoColor=black"/>
-<!-- Recoil -->
-<img alt="Recoil" src ="https://img.shields.io/badge/Recoil-646CFF.svg?&style=for-the-badge"/>
-<!-- Styled Components -->
-<img alt="Vite" src ="https://img.shields.io/badge/styledcomponents-DB7093.svg?&style=for-the-badge&logo=styledcomponents&logoColor=white"/>
-<!-- FireBase -->
-<img src="https://img.shields.io/badge/Firebase-FFCA28?style=for-the-badge&logo=firebase&logoColor=black"/>
+| 종류 | 사용이유 |
+| --- | -- | 
+|![JavaScript](https://img.shields.io/badge/javascript-f7df1e?style=for-the-badge&logo=javascript&logoColor=black) | TypeScript를 익힌 팀원의 수가 적음 |
+| ![React](https://img.shields.io/badge/react-61DAFB?style=for-the-badge&logo=react&logoColor=black) | 다른 프레임 워크 사용법 모름 |
+| ![Styled Components](https://img.shields.io/badge/styledcomponents-DB7093?style=for-the-badge&logo=styledcomponents&logoColor=white) | 컴포넌트와 스타일 코드가 같은 위치에 있어 유지보수에 용이함 |
+| ![Recoil](https://img.shields.io/badge/Recoil-646CFF.svg?&style=for-the-badge&logo=Recoil&logoColor=white) | 상태관리 라이브러리에 익숙하지 못하지만 러닝커브가 원만해 빠른 학습에 용이함 |
+| ![FireBase](https://img.shields.io/badge/Firebase-FFCA28?style=for-the-badge&logo=firebase&logoColor=black) | 백엔드 Api를 제작할 수 없지만 백엔드의 기능이 필요함 |
 
 <div>
 
